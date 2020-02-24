@@ -3,26 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Diagnostics;
 
 namespace second
 {
     /// <summary>
     /// класс комплекта, наследуемый от общего класса о товарах
     /// </summary>
-    class Consignment : Goods
+    /// 
+    [Serializable]
+    public class Consignment : Goods
     {
         /// <summary>
         /// дата производства
         /// </summary>
-        DateTime startDate;
+        public DateTime startDate;
         /// <summary>
         /// количество продуктов
         /// </summary>
-        uint ammount;
+        public uint ammount;
         /// <summary>
         /// срок годности в днях
         /// </summary>
-        uint srok;
+        public uint srok;
 
         /// <summary>
         /// выводится информация о комплекте
@@ -34,6 +38,8 @@ namespace second
             Console.WriteLine("start date : {0}.{1}.{2}", startDate.Day, startDate.Month, startDate.Year);
             Console.WriteLine("srok : {0} days", srok);
             Console.WriteLine("ammount : {0}", ammount);
+
+            Trace.WriteLine("набор напечатан");
         }
 
         /// <summary>

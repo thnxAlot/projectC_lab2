@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Diagnostics;
 
 namespace second
 {
     /// <summary>
     /// класс продукта, наследуемый от общего класса о товарах
     /// </summary>
-    class Product : Goods
+    [Serializable]
+    public class Product : Goods
     {
 
         /// <summary>
         /// дата производства
         /// </summary>
-        DateTime startDate;
+        public DateTime startDate;
         /// <summary>
         /// срок годности в днях
         /// </summary>
-        uint srok;
+        public uint srok;
 
         /// <summary>
         /// выводится информация о продукте
@@ -30,6 +33,8 @@ namespace second
             Console.WriteLine("price : " + price);
             Console.WriteLine("start date : {0}.{1}.{2}", startDate.Day,startDate.Month,startDate.Year);
             Console.WriteLine("srok : {0} days",srok);
+
+            Trace.WriteLine("продукт напечатан");
         }
 
         /// <summary>
@@ -43,6 +48,7 @@ namespace second
                 return false;
             return true;
 
+            
         }
 
         /// <summary>

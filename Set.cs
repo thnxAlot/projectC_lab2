@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Diagnostics;
 
 namespace second
 {
     /// <summary>
     /// класс набора, наследуемый от общего класса о товарах
     /// </summary>
-    class Set : Goods
+    /// 
+    [Serializable]
+    public class Set : Goods
     {
         /// <summary>
         /// набор продуктов
         /// </summary>
-        Product[] products;
+        public Product[] products;
 
         /// <summary>
         /// выводится информация о наборе
@@ -29,7 +33,7 @@ namespace second
                 products[i].printInfo();
                 Console.WriteLine();
             }
-            
+            Trace.WriteLine("сет напечатан");
         }
 
         /// <summary>
